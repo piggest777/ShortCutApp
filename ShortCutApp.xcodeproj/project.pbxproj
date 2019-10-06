@@ -8,22 +8,26 @@
 
 /* Begin PBXBuildFile section */
 		B575B59123495B040038DA14 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575B59023495B040038DA14 /* AppDelegate.swift */; };
-		B575B59323495B040038DA14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575B59223495B040038DA14 /* SceneDelegate.swift */; };
-		B575B59523495B040038DA14 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575B59423495B040038DA14 /* ViewController.swift */; };
+		B575B59523495B040038DA14 /* MountainsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575B59423495B040038DA14 /* MountainsVC.swift */; };
 		B575B59823495B040038DA14 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B575B59623495B040038DA14 /* Main.storyboard */; };
 		B575B59A23495B050038DA14 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B575B59923495B050038DA14 /* Assets.xcassets */; };
 		B575B59D23495B050038DA14 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B575B59B23495B050038DA14 /* LaunchScreen.storyboard */; };
+		B575B5A5234961550038DA14 /* SpaceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575B5A4234961550038DA14 /* SpaceVC.swift */; };
+		B575B5A7234961850038DA14 /* OceanVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575B5A6234961850038DA14 /* OceanVC.swift */; };
+		B575B5A8234A02B80038DA14 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B575B59223495B040038DA14 /* SceneDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		B575B58D23495B040038DA14 /* ShortCutApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShortCutApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B575B59023495B040038DA14 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B575B59223495B040038DA14 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		B575B59423495B040038DA14 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		B575B59423495B040038DA14 /* MountainsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MountainsVC.swift; sourceTree = "<group>"; };
 		B575B59723495B040038DA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B575B59923495B050038DA14 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B575B59C23495B050038DA14 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B575B59E23495B050038DA14 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B575B5A4234961550038DA14 /* SpaceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpaceVC.swift; sourceTree = "<group>"; };
+		B575B5A6234961850038DA14 /* OceanVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OceanVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,11 +62,13 @@
 			children = (
 				B575B59023495B040038DA14 /* AppDelegate.swift */,
 				B575B59223495B040038DA14 /* SceneDelegate.swift */,
-				B575B59423495B040038DA14 /* ViewController.swift */,
+				B575B59423495B040038DA14 /* MountainsVC.swift */,
+				B575B5A4234961550038DA14 /* SpaceVC.swift */,
 				B575B59623495B040038DA14 /* Main.storyboard */,
 				B575B59923495B050038DA14 /* Assets.xcassets */,
 				B575B59B23495B050038DA14 /* LaunchScreen.storyboard */,
 				B575B59E23495B050038DA14 /* Info.plist */,
+				B575B5A6234961850038DA14 /* OceanVC.swift */,
 			);
 			path = ShortCutApp;
 			sourceTree = "<group>";
@@ -138,9 +144,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B575B59523495B040038DA14 /* ViewController.swift in Sources */,
+				B575B5A8234A02B80038DA14 /* SceneDelegate.swift in Sources */,
+				B575B59523495B040038DA14 /* MountainsVC.swift in Sources */,
+				B575B5A5234961550038DA14 /* SpaceVC.swift in Sources */,
 				B575B59123495B040038DA14 /* AppDelegate.swift in Sources */,
-				B575B59323495B040038DA14 /* SceneDelegate.swift in Sources */,
+				B575B5A7234961850038DA14 /* OceanVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +295,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83G4KB5W5L;
 				INFOPLIST_FILE = ShortCutApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -294,7 +303,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "funny-farm.ShortCutApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -305,6 +314,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 83G4KB5W5L;
 				INFOPLIST_FILE = ShortCutApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -312,7 +322,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "funny-farm.ShortCutApp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

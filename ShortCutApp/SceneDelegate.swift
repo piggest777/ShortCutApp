@@ -11,13 +11,24 @@ import UIKit
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
-
+    
+var vcArray = [UIViewController]()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
+           let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let mountainVC = storyboard.instantiateViewController(identifier: "mountainsVC") as! MountainsVC
+        let spaceVC = storyboard.instantiateViewController(identifier: "spaceVC") as! SpaceVC
+        let oceanVC = storyboard.instantiateViewController(identifier: "oceanVC") as! OceanVC
+        vcArray = [mountainVC, spaceVC, oceanVC]
+
+        
         guard let _ = (scene as? UIWindowScene) else { return }
+        
+     
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
@@ -47,6 +58,42 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to save data, release shared resources, and store enough scene-specific state information
         // to restore the scene back to its current state.
     }
+    
+    enum ShortcutType: String {
+        case mountains = "mountains"
+        case space = "space"
+        case ocean = "ocean"
+    }
+    
+    func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
+        
+        let navVC = window?.rootViewController as! UINavigationController
+        navVC.setViewControllers(vcArray, animated: false)
+        
+               if let type = shortcutItem.type.components(separatedBy: ".").last {
+       
+                   switch type {
+                   case ShortcutType.space.rawValue:
+                    navVC.popToViewController(vcArray[1], animated: true)
+                    completionHandler(true)
+                       print("This is Space")
+                   case ShortcutType.ocean.rawValue:
+                    navVC.popToViewController(vcArray[2], animated: true)
+                    completionHandler(true)
+                       print("This is Ocean")
+                   default:
+                    navVC.popToRootViewController(animated: true)
+                     completionHandler(true)
+                       print("There are the mountains")
+                   }
+       
+               }
+        
+        completionHandler(false)
+        
+        
+    }
+
 
 
 }
