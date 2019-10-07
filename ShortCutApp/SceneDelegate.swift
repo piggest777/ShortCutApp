@@ -12,18 +12,25 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     
-var vcArray = [UIViewController]()
+//var vcArray = [UIViewController]()
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
-           let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let mountainVC = storyboard.instantiateViewController(identifier: "mountainsVC") as! MountainsVC
-        let spaceVC = storyboard.instantiateViewController(identifier: "spaceVC") as! SpaceVC
-        let oceanVC = storyboard.instantiateViewController(identifier: "oceanVC") as! OceanVC
-        vcArray = [mountainVC, spaceVC, oceanVC]
+//           let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//        let mountainVC = storyboard.instantiateViewController(identifier: "mountainsVC") as! MountainsVC
+//        let spaceVC = storyboard.instantiateViewController(identifier: "spaceVC") as! SpaceVC
+//        let oceanVC = storyboard.instantiateViewController(identifier: "oceanVC") as! OceanVC
+//        vcArray = [mountainVC, spaceVC, oceanVC]
 
+//        var shortcutItems = UIApplication.shared.shortcutItems ?? []
+        
+        let oceanShortcut = UIMutableApplicationShortcutItem(type: "\(Bundle.main.bundleIdentifier).ocean", localizedTitle: "Ocean", localizedSubtitle: nil, icon: UIApplicationShortcutIcon.init(templateImageName: "OceanShort"), userInfo: nil)
+        
+        UIApplication.shared.shortcutItems = [oceanShortcut]
+        
+        
         
         guard let _ = (scene as? UIWindowScene) else { return }
         
@@ -67,22 +74,25 @@ var vcArray = [UIViewController]()
     
     func windowScene(_ windowScene: UIWindowScene, performActionFor shortcutItem: UIApplicationShortcutItem, completionHandler: @escaping (Bool) -> Void) {
         
-        let navVC = window?.rootViewController as! UINavigationController
-        navVC.setViewControllers(vcArray, animated: false)
+        let navVC = window?.rootViewController as! UITabBarController
+//        navVC.setViewControllers(vcArray, animated: false)
         
                if let type = shortcutItem.type.components(separatedBy: ".").last {
        
                    switch type {
                    case ShortcutType.space.rawValue:
-                    navVC.popToViewController(vcArray[1], animated: true)
+//                    navVC.popToViewController(vcArray[1], animated: true)
+                    navVC.selectedIndex = 1
                     completionHandler(true)
                        print("This is Space")
                    case ShortcutType.ocean.rawValue:
-                    navVC.popToViewController(vcArray[2], animated: true)
+//                    navVC.popToViewController(vcArray[2], animated: true)
+                    navVC.selectedIndex = 2
                     completionHandler(true)
                        print("This is Ocean")
                    default:
-                    navVC.popToRootViewController(animated: true)
+//                    navVC.popToRootViewController(animated: true)
+                    navVC.selectedIndex = 0
                      completionHandler(true)
                        print("There are the mountains")
                    }
